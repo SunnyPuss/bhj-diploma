@@ -57,9 +57,7 @@ class AccountsWidget {
           return err;
         } else if (response & response.succes) {
           this.clear();
-          response.data.forEach((element) => {
-            element.renderItem();
-          });
+          this.renderItem(response.data);
         }
       })
     }
