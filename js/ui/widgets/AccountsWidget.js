@@ -15,7 +15,7 @@ class AccountsWidget {
   constructor( element ) {
     if (!element) {
       throw new Error(`Элемент не существует в AccountsWidget`);
-   };
+    };
     this.element = element;
     this.registerEvents();
     this.update();
@@ -36,7 +36,7 @@ class AccountsWidget {
     createAccount.addEventListener(`click`, () => {
       App.getModal(`createAccount`).open();
     })
-    accounts.forEach((element) => {element.addEventListener (`click`, this.onSelectAccount)})
+    accounts.forEach((element) => {element.addEventListener (`click`, this.onSelectAccount(element))})
   }
 
   /**
