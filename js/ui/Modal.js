@@ -14,7 +14,7 @@ class Modal {
    * */
   constructor( element ) {
     if (!element) {
-       throw new Error(`Элемент не существует в Modal`);
+      throw new Error(`Элемент не существует в Modal`);
     };
     this.element = element;
     this.registerEvents();    
@@ -37,7 +37,7 @@ class Modal {
    * Закрывает текущее окно (Modal.close())
    * */
   onClose() {
-    event .preventDefault();
+    event.preventDefault();
     this.close();
   }
   /**
