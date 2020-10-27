@@ -8,7 +8,7 @@ class Entity {
     return ``;
     }
   
-   static get HOST() {
+  static get HOST() {
       return `https://bhj-diplom.letsdocode.ru`;
       }
   /**

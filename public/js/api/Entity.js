@@ -7,10 +7,6 @@ class Entity {
   static get URL() {
     return ``;
     }
-  
-   static get HOST() {
-      return `https://bhj-diplom.letsdocode.ru`;
-      }
   /**
    * Запрашивает с сервера список данных.
    * Это могут быть счета или доходы/расходы
@@ -18,7 +14,7 @@ class Entity {
    * */
   static list( data, callback = f => f ) {
     return createRequest({
-      url: this.HOST + this.URL,
+      url: this.URL,
       data,
       method: `GET`,
       responseType: `json`,
@@ -34,7 +30,7 @@ class Entity {
    * */
   static create( data, callback = f => f ) {
     return createRequest({
-      url: this.HOST + this.URL,
+      url: this.URL,
       method: `POST`,
       data: Object.assign({_method: `PUT`}, data),
       responseType: `json`,
@@ -48,7 +44,7 @@ class Entity {
    * */
   static get( id = '', data, callback = f => f ) {
     return createRequest({
-      url: this.HOST + this.URL,
+      url: this.URL,
       method: `GET`,
       data: Object.assign({id: ``}, data),
       responseType: `json`,
@@ -66,7 +62,7 @@ class Entity {
    * */
   static remove( id = '', data, callback = f => f ) {
     return createRequest({
-      url: this.HOST + this.URL,
+      url: this.URL,
       method: `POST`,
       data: Object.assign({id: 21,_method: `GET`}, data),
       responseType: `json`,

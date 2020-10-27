@@ -41,7 +41,7 @@ class User {
    * */
   static fetch( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.HOST + this.URL + `/current`,
+      url: this.URL + `/current`,
       data,
       method: `GET`,
       responseType: `json`,
@@ -67,7 +67,7 @@ class User {
    * */
   static login( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.HOST + this.URL + `/login`,
+      url: this.URL + `/login`,
       data,
       method: `POST`,
       responseType: `json`,
@@ -91,7 +91,7 @@ class User {
    * */
   static register( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.HOST + this.URL + `/register`,
+      url: this.URL + `/register`,
       data,
       method: `POST`,
       responseType: `json`,
@@ -113,7 +113,7 @@ class User {
    * */
   static logout( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.HOST + this.URL + `/logout`,
+      url: this.URL + `/logout`,
       data,
       method: `POST`,
       responseType: `json`,
@@ -129,6 +129,3 @@ class User {
     return xhr;
   }
 }
-
-User.HOST = `https://bhj-diplom.letsdocode.ru`;
-User.URL = '/user';
