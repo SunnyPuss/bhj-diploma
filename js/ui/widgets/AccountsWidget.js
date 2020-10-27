@@ -31,12 +31,12 @@ class AccountsWidget {
    * */
   registerEvents() {
     this.onSelectAccount = this.onSelectAccount.bind(this);
-    this.element.addEventListener("click", (el) => {
-      console.log(this.element);
-      if (el.classList.contains(`create-account`)) {
+    this.element.addEventListener("click", (evt) => {
+      console.log(evt.target);
+      if (evt.target.closest(".create-account")) {
         App.getModal(`createAccount`).open();
-      } else if (el.classList.contains(`account`)) {
-        this.onSelectAccount(el);
+      } else if (evt.target.closest(".account")) {
+        this.onSelectAccount(evt.target);
       }
     })
   }
