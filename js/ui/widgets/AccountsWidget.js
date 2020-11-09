@@ -32,7 +32,6 @@ class AccountsWidget {
   registerEvents() {
     this.onSelectAccount = this.onSelectAccount.bind(this);
     this.element.addEventListener("click", (evt) => {
-      console.log(evt.target);
       if (evt.target.closest(".create-account")) {
         App.getModal(`createAccount`).open();
       } else if (evt.target.closest(".account")) {
@@ -54,10 +53,10 @@ class AccountsWidget {
   update() {
     if (User.current()) {
       Account.list(User.current(), (err, response) => {
-        console.log(`response`, response)
+        console.log(response)
         if (err) {
           return err;
-        } else if (response & response.succes) {
+        } else if (response.success) {
           this.clear();
           this.renderItem(response.data);
         }
