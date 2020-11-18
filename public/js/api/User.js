@@ -91,7 +91,7 @@ class User {
    * */
   static register( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.URL + `/register`,
+      url: `/register`,
       data,
       method: `POST`,
       responseType: `json`,

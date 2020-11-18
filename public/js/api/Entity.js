@@ -30,7 +30,7 @@ class Entity {
    * */
   static create( data, callback = f => f ) {
     return createRequest({
-      url: this.URL,
+      url,
       method: `POST`,
       data: Object.assign({_method: `PUT`}, data),
       responseType: `json`,
