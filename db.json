@@ -6,6 +6,13 @@
       "password": "demo",
       "id": "1",
       "isAuthorized": false
+    },
+    {
+      "name": "barsik",
+      "email": "kot@mail.ru",
+      "password": "kiskis",
+      "id": "3ke8pe18z4khp8yw8o",
+      "isAuthorized": true
     }
   ],
   "accounts": [
@@ -23,6 +30,11 @@
       "name": "Бизнес",
       "user_id": "1",
       "id": "3"
+    },
+    {
+      "name": "dali pojrat",
+      "user_id": "3ke8pe18z4khp8yw8o",
+      "id": "3ke8pe1i9wkhp8zk4s"
     }
   ],
   "transactions": [

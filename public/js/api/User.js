@@ -41,7 +41,7 @@ class User {
    * */
   static fetch( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.URL + `/current`,
+      url: `/user/current`,
       data,
       method: `GET`,
       responseType: `json`,
@@ -67,7 +67,7 @@ class User {
    * */
   static login( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.URL + `/login`,
+      url: `/user/login`,
       data,
       method: `POST`,
       responseType: `json`,
@@ -91,7 +91,7 @@ class User {
    * */
   static register( data, callback = f => f ) {
     const xhr = createRequest({
-      url: `/register`,
+      url: `/user/register`,
       data,
       method: `POST`,
       responseType: `json`,
@@ -113,7 +113,7 @@ class User {
    * */
   static logout( data, callback = f => f ) {
     const xhr = createRequest({
-      url: this.URL + `/logout`,
+      url: `/user/logout`,
       data,
       method: `POST`,
       responseType: `json`,
