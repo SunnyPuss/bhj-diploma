@@ -30,12 +30,22 @@ class AccountsWidget {
    * вызывает AccountsWidget.onSelectAccount()
    * */
   registerEvents() {
-    this.onSelectAccount = this.onSelectAccount.bind(this);
-    this.element.addEventListener("click", (evt) => {
-      if (evt.target.closest(".create-account")) {
+    // this.onSelectAccount = this.onSelectAccount.bind(this);
+    // this.element.addEventListener("click", (evt) => {
+    //   if (evt.target.closest(".create-account")) {
+    //     App.getModal(`createAccount`).open();
+    //   } else if (evt.target.closest(".account")) {
+    //     this.onSelectAccount(evt.target);
+    //   }
+    // })
+
+    document.querySelector(`.accounts-panel`).addEventListener(`click`, (e) => {
+      e.preventDefault();
+      if (e.target == this.element.querySelector(`.create-account`)) {
         App.getModal(`createAccount`).open();
-      } else if (evt.target.closest(".account")) {
-        this.onSelectAccount(evt.target);
+      }
+      if (e.target.closest(`.account`)) {
+        this.onSelectAccount(e.target.closest(`.account`));
       }
     })
   }
@@ -58,8 +68,11 @@ class AccountsWidget {
           return err;
         } else if (response.success == true) {
           this.clear();
-          this.renderItem(response.data);
+          response.data.forEach(object => {
+            this.renderItem(object)
+          })
         }
+      
       })
     }
   }
@@ -82,11 +95,18 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount( element ) {
-    element.addEventListener(`click`, () => {
-      document.querySelector(`active`).classList.remove(`active`);
-      element.classList.add(`active`);
-      App.showPage( 'transactions', { account_id: item.id });
+    // element.addEventListener(`click`, () => {
+    //   document.querySelector(`active`).classList.remove(`active`);
+    //   element.classList.add(`active`);
+    //   App.showPage( 'transactions', { account_id: item.id });
+    // })
+
+    this.element.querySelector(`.active`).forEach((account) => {
+      account.classList.remove(`active`);
     })
+
+    element.classList.add(`.active`);
+    App.showPage(`transactions`, {account_id: element.dataset.id});
   }
 
   /**

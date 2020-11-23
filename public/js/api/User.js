@@ -54,6 +54,7 @@ class User {
             User.unsetCurrent (response.user);
           }
         }
+        callback(err, response);
       }
     })
     return xhr;
