@@ -101,11 +101,11 @@ class AccountsWidget {
     //   App.showPage( 'transactions', { account_id: item.id });
     // })
 
-    this.element.querySelector(`.active`).forEach((account) => {
+    this.element.querySelectorAll(`.active`).forEach((account) => {
       account.classList.remove(`active`);
     })
 
-    element.classList.add(`.active`);
+    element.classList.add(`active`);
     App.showPage(`transactions`, {account_id: element.dataset.id});
   }
 
@@ -115,7 +115,7 @@ class AccountsWidget {
    * item - объект с данными о счёте
    * */
   getAccountHTML( item ) {
-    return `<li class="active account" data-id="${item.id}">
+    return `<li class="account" data-id="${item.id}">
     <a href="#">
         <span>${item.name}</span> /
         <span>${item.sum}</span>
