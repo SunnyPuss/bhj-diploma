@@ -202,6 +202,69 @@
       "sum": 300000,
       "type": "EXPENSE",
       "user_id": "1"
+    },
+    {
+      "type": "INCOME",
+      "name": "barsik",
+      "sum": 500,
+      "account_id": "3ke8pe1i9wkhp8zk4s",
+      "created_at": "2020-12-07T21:05:51.273Z"
+    },
+    {
+      "type": "EXPENSE",
+      "name": "barsik",
+      "sum": 300,
+      "account_id": "3ke8pe1830khuzh5at",
+      "created_at": "2020-12-07T21:07:32.606Z"
+    },
+    {
+      "type": "EXPENSE",
+      "name": "dali pojrat",
+      "sum": 500,
+      "account_id": "3ke8pe1i9wkhp8zk4s",
+      "created_at": "2020-12-07T21:08:59.352Z"
+    },
+    {
+      "type": "EXPENSE",
+      "name": "minus money",
+      "sum": 500,
+      "account_id": "3ke8pe1i9wkhp8zk4s",
+      "created_at": "2020-12-07T21:19:48.260Z"
+    },
+    {
+      "type": "INCOME",
+      "name": "опачки",
+      "sum": 500,
+      "account_id": "3ke8pe1i9wkhp8zk4s",
+      "created_at": "2020-12-07T21:23:06.566Z"
+    },
+    {
+      "type": "INCOME",
+      "name": "вот вот",
+      "sum": 500,
+      "account_id": "3ke8pe1i9wkhp8zk4s",
+      "created_at": "2020-12-07T21:24:02.552Z"
+    },
+    {
+      "type": "INCOME",
+      "name": "zpshechka",
+      "sum": 25000,
+      "account_id": "3ke8pe1f90khuzezcf",
+      "created_at": "2020-12-07T21:25:27.538Z"
+    },
+    {
+      "type": "INCOME",
+      "name": "opachki",
+      "sum": 25000,
+      "account_id": "3ke8pe17sskhuzf33q",
+      "created_at": "2020-12-07T21:26:24.994Z"
+    },
+    {
+      "type": "INCOME",
+      "name": "viskas",
+      "sum": 500,
+      "account_id": "3ke8pe1gd0khpcw5pc",
+      "created_at": "2020-12-07T21:28:42.446Z"
     }
   ]
 }
