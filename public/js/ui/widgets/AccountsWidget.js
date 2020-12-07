@@ -63,7 +63,6 @@ class AccountsWidget {
   update() {
     if (User.current()) {
       Account.list(User.current(), (err, response) => {
-        console.log(response)
         if (err) {
           return err;
         } else if (response.success == true) {
