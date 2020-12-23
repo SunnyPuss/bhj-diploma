@@ -65,6 +65,16 @@
       "name": "catch response",
       "user_id": "3ke8pe18z4khp8yw8o",
       "id": "3ke8pe1amckhuzx1zz"
+    },
+    {
+      "name": "cyberpunk 2077",
+      "user_id": "3ke8pe18z4khp8yw8o",
+      "id": "3ke8pe1gj4kikfxcyt"
+    },
+    {
+      "name": "a ya daje witcher3 ne igral",
+      "user_id": "3ke8pe18z4khp8yw8o",
+      "id": "3ke8pe1amokikia4cy"
     }
   ],
   "transactions": [
@@ -265,6 +275,13 @@
       "sum": 500,
       "account_id": "3ke8pe1gd0khpcw5pc",
       "created_at": "2020-12-07T21:28:42.446Z"
+    },
+    {
+      "type": "EXPENSE",
+      "name": "cost",
+      "sum": 2000,
+      "account_id": "3ke8pe1gj4kikfxcyt",
+      "created_at": "2020-12-11T16:54:58.513Z"
     }
   ]
 }

@@ -11,14 +11,18 @@ class TransactionsPage {
    * через registerEvents()
    * */
   constructor( element ) {
-
+    if (!element) {
+      throw new Error(`Элемент не существует в TransactionPage`);
+    };
+    this.element = element;
+    this.registerEvents();
   }
 
   /**
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-
+    this.render();
   }
 
   /**
@@ -28,6 +32,14 @@ class TransactionsPage {
    * TransactionsPage.removeAccount соответственно
    * */
   registerEvents() {
+    document.querySelector(`.content-wrapper`).addEventListener(`click`, (e) => {
+      e.preventDefault();
+      if (e.target == document.querySelector(`.remove-account`)) {
+        this.removeAccount();
+      } else if (e.target == document.querySelector(`.transaction__remove`)) {
+        this.removeTransaction(e.target.dataset.id);
+      }
+    })
 
   }
 
@@ -59,7 +71,8 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render( options ) {
-
+    console.log(Account.get());
+    console.log (Transaction.list());
   }
 
   /**

@@ -132,4 +132,3 @@ class AccountsWidget {
     this.element.insertAdjacentHTML(`beforeend`, this.getAccountHTML(item));
   }
 }
-
