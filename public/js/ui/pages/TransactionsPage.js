@@ -71,8 +71,31 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render( options ) {
-    console.log(Account.get());
-    console.log (Transaction.list());
+    const lastoptions = options;
+
+    if (options) {
+      
+      Account.get(options.account_id, options, (err, response) => {
+        
+        if (err) {
+          return (err);
+        } else if (response.success == true) {
+          console.log (`куку`)
+          this.renderTitle(response.data.name);
+        }
+      })
+      
+      Transaction.list(options, (err, response) => {
+        
+        if (err) {
+          return err;
+        } else if (response.success == true) {
+          response.data.forEach(object => {
+            this.renderTransactions(object)
+          });
+        }
+      })
+    }
   }
 
   /**
@@ -115,3 +138,4 @@ class TransactionsPage {
 
   }
 }
+

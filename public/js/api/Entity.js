@@ -46,13 +46,10 @@ class Entity {
     return createRequest({
       url: this.URL,
       method: `GET`,
-      data: Object.assign({id: ``}, data),
+      data: Object.assign({id: id}, data),
       responseType: `json`,
-      callback: (err, response) => {
-        if (response.readyState === response.DONE && response.status === 200) {
-          callback(err, response);
-        }
-      }
+      callback
+      
     });
   }
 
@@ -64,13 +61,9 @@ class Entity {
     return createRequest({
       url: this.URL,
       method: `POST`,
-      data: Object.assign({id: 21,_method: `GET`}, data),
+      data: Object.assign({id: id,_method: `GET`}, data),
       responseType: `json`,
-      callback: (err, response) => {
-        if (response.readyState === response.DONE && response.status === 200) {
-          callback(err, response);
-        }
-      }
+      callback
     });  
   }
 }
