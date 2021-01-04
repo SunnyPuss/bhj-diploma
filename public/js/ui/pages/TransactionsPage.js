@@ -52,7 +52,19 @@ class TransactionsPage {
    * для обновления приложения
    * */
   removeAccount() {
+    confirm();
 
+    if (true) {
+      console.log (`confirmed`);
+      Account.remove(lastOptions.account_id, lastOptions, (err, response) => {
+        if (err) {
+          return err;
+        } else if (response.success == true) {
+          App.update();
+          this.clear();
+        }
+      })
+    }
   }
 
   /**
@@ -71,17 +83,20 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render( options ) {
-    const lastoptions = options;
-
-    if (options) {
+    const lastOptions = options;
+    
+    if (lastOptions) {
       
-      Account.get(options.account_id, options, (err, response) => {
+      Account.get(lastOptions.account_id, lastOptions, (err, response) => {
         
         if (err) {
           return (err);
         } else if (response.success == true) {
           console.log (`куку`)
           this.renderTitle(response.data.name);
+          console.log(lastOptions);
+          return lastOptions;
+          
         }
       })
       
@@ -96,6 +111,7 @@ class TransactionsPage {
         }
       })
     }
+    
   }
 
   /**
