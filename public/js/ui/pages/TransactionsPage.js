@@ -10,14 +10,16 @@ class TransactionsPage {
    * Сохраняет переданный элемент и регистрирует события
    * через registerEvents()
    * */
-  constructor( element ) {
+  constructor( element, lastOptions ) {
     if (!element) {
       throw new Error(`Элемент не существует в TransactionPage`);
     };
     this.element = element;
+    this.lastOptions = lastOptions;
     this.registerEvents();
   }
 
+  static lastOptions = {};
   /**
    * Вызывает метод render для отрисовки страницы
    * */
@@ -52,16 +54,18 @@ class TransactionsPage {
    * для обновления приложения
    * */
   removeAccount() {
-    confirm();
-
-    if (true) {
-      console.log (`confirmed`);
-      Account.remove(lastOptions.account_id, lastOptions, (err, response) => {
+    
+    
+    if (this.lastOptions) {
+      
+      Account.remove(this.lastOptions.account_id, this.lastOptions, (err, response) => {
+        console.log(response);
         if (err) {
           return err;
         } else if (response.success == true) {
           App.update();
           this.clear();
+          console.log(`removed`);
         }
       })
     }
@@ -83,19 +87,18 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render( options ) {
-    const lastOptions = options;
+    this.lastOptions = options;
     
-    if (lastOptions) {
+    if (this.lastOptions) {
       
-      Account.get(lastOptions.account_id, lastOptions, (err, response) => {
+      Account.get(this.lastOptions.account_id, this.lastOptions, (err, response) => {
         
         if (err) {
           return (err);
         } else if (response.success == true) {
           console.log (`куку`)
           this.renderTitle(response.data.name);
-          console.log(lastOptions);
-          return lastOptions;
+          console.log(this.lastOptions);
           
         }
       })

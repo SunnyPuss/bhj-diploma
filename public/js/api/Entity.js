@@ -61,7 +61,7 @@ class Entity {
     return createRequest({
       url: this.URL,
       method: `POST`,
-      data: Object.assign({id: id,_method: `GET`}, data),
+      data: Object.assign({id: id,_method: `DELETE`}, data),
       responseType: `json`,
       callback
     });  
