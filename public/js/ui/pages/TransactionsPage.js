@@ -106,7 +106,7 @@ class TransactionsPage {
     
     if (this.lastOptions) {
       console.log( options)
-      Account.get(this.lastOptions.account_id, (err, response) => {
+      Account.get(this.lastOptions.account_id, User.current(), (err, response) => {
         
         if (err) {
           return (err);
