@@ -24,7 +24,11 @@ class TransactionsPage {
    * Вызывает метод render для отрисовки страницы
    * */
   update() {
-    this.render();
+    if (this.lastOptions) {
+      this.render(this.lastOptions);
+    } else {
+      this.render();
+    };
   }
 
   /**
@@ -40,7 +44,7 @@ class TransactionsPage {
         this.removeAccount();
       } else if (e.target == document.querySelector(`.transaction__remove`)) {
         this.removeTransaction(e.target.dataset.id);
-      }
+      };
     })
 
   }
@@ -56,7 +60,8 @@ class TransactionsPage {
   removeAccount() {
     
     
-    if (this.lastOptions) {
+    if (this.lastOptions && confirm(`Вы действительно хотите удалить этот счёт?`)) {
+      
       
       Account.remove(this.lastOptions.account_id, this.lastOptions, (err, response) => {
         console.log(response);
@@ -65,10 +70,10 @@ class TransactionsPage {
         } else if (response.success == true) {
           App.update();
           this.clear();
-          console.log(`removed`);
+          
         }
       })
-    }
+    };
   }
 
   /**
@@ -77,7 +82,17 @@ class TransactionsPage {
    * По удалению транзакции вызовите метод App.update()
    * */
   removeTransaction( id ) {
-
+    if (this.lastOptions && confirm(`Вы действительно хотите удалить этоту транзакцию?`)) {
+      
+      Account.remove(id, this.lastOptions, (err, response) => {
+        console.log(response);
+        if (err) {
+          return err;
+        } else if (response.success == true) {
+          App.update();
+        }
+      })
+    };
   }
 
   /**
@@ -90,20 +105,21 @@ class TransactionsPage {
     this.lastOptions = options;
     
     if (this.lastOptions) {
-      
-      Account.get(this.lastOptions.account_id, this.lastOptions, (err, response) => {
+      console.log( options)
+      Account.get(this.lastOptions.account_id, (err, response) => {
         
         if (err) {
           return (err);
         } else if (response.success == true) {
-          console.log (`куку`)
+          console.log( options)
+          // console.log (`куку`)
           this.renderTitle(response.data.name);
-          console.log(this.lastOptions);
+          console.log(response);
           
         }
       })
       
-      Transaction.list(options, (err, response) => {
+      Transaction.list(this.lastOptions, (err, response) => {
         
         if (err) {
           return err;
@@ -123,14 +139,16 @@ class TransactionsPage {
    * Устанавливает заголовок: «Название счёта»
    * */
   clear() {
-
+    this.renderTransactions(data = []);
+    this.renderTitle(`Название счёта`);
+    this.lastOptions = {};
   }
 
   /**
    * Устанавливает заголовок в элемент .content-title
    * */
   renderTitle( name ) {
-
+    document.querySelector(`.content-title`).textContent = name;
   }
 
   /**
@@ -138,7 +156,7 @@ class TransactionsPage {
    * в формат «10 марта 2019 г. в 03:20»
    * */
   formatDate( date ) {
-
+    console.log(Date.parse(date).toLocaleString());
   }
 
   /**
